@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<Filter Include="Header Files">
+			<UniqueIdentifier>{8b54ba44-4610-47f1-afb5-c9399be3853c}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="Source Files">
+			<UniqueIdentifier>{76246ab4-7280-46f4-876f-a5cef3c5bab0}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="TwinCAT UM Files">
+			<UniqueIdentifier>{6bdb8bde-8235-4bb6-92f4-425101b4b52d}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="TwinCAT RT Files">
+			<UniqueIdentifier>{3a5e694f-f106-4a38-a36c-55c73a0d2fdf}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="TMC Files">
+			<UniqueIdentifier>{2977cf6e-6ebf-4033-a1ec-1ef05b31c214}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="Resource.h">
+			<Filter>Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="TcPch.h">
+			<Filter>Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="mainClassFactory.h">
+			<Filter>Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="mainInterfaces.h">
+			<Filter>Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="mainServices.h">
+			<Filter>Header Files</Filter>
+		</ClInclude>
+		<ClInclude Include="mainCtrl.h">
+			<Filter>TwinCAT UM Files</Filter>
+		</ClInclude>
+		<ClInclude Include="mainDriver.h">
+			<Filter>TwinCAT RT Files</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="TcPch.cpp">
+			<Filter>Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="mainClassFactory.cpp">
+			<Filter>Source Files</Filter>
+		</ClCompile>
+		<ClCompile Include="mainCtrl.cpp">
+			<Filter>TwinCAT UM Files</Filter>
+		</ClCompile>
+		<ClCompile Include="mainW32.cpp">
+			<Filter>TwinCAT UM Files</Filter>
+		</ClCompile>
+		<ClCompile Include="mainDriver.cpp">
+			<Filter>TwinCAT RT Files</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="main.rc">
+			<Filter>Source Files</Filter>
+		</ResourceCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<None Include="mainW32.def">
+			<Filter>TwinCAT UM Files</Filter>
+		</None>
+		<None Include="main.tmc">
+			<Filter>TMC Files</Filter>
+		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<Midl Include="mainW32.idl">
+			<Filter>TwinCAT UM Files</Filter>
+		</Midl>
+	</ItemGroup>
+</Project>
