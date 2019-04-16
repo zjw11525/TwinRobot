@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "Module1.h"
+#include "Kinematic.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -173,8 +174,32 @@ HRESULT CModule1::CycleUpdate(ITcTask* ipTask, ITcUnknown* ipCaller, ULONG_PTR c
 	HRESULT hr = S_OK;
 
 	// TODO: Replace the sample with your cyclic code
-	m_counter+=m_Inputs.Value;
-	m_Outputs.Value=m_counter;
+	double angle[6] = { 0, 0, 0, 0, 0, 0 };
+
+	for (int i = 0; i < 6; i++)
+		angle[i] = m_Inputs.InPos[i];
+
+
+	for (int i = 0; i < 6; i++) angle[i] *= (PI / 180.0);
+	Theta Angle_Now(angle, angle + 6);
+
+	//Theta Angle_Last(angle, angle + 6);
+	//Angle_Last[1] = Angle_Last[1] + PI / 2;
+
+
+	Array T;
+	T = Fkine_Final(Angle_Now);
+
+	for (int i = 0; i < 3; i++)
+		m_Outputs.OutPos[i] = T[i][3];
+
+
+
+
+	
+	//Theta angleout(6, 0);
+	//angleout = Ikine_Step(T, Angle_Last);
+
 
 	return hr;
 }

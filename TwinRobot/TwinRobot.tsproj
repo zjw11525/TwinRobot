@@ -85,48 +85,32 @@
 								<AreaNo AreaType="InputDst">0</AreaNo>
 								<Name>Inputs</Name>
 								<ContextId>1</ContextId>
-								<ByteSize>12</ByteSize>
+								<ByteSize>48</ByteSize>
 								<Symbol>
-									<Name>Value</Name>
-									<BitSize>32</BitSize>
-									<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+									<Name>InPos</Name>
+									<BitSize>384</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<ArrayInfo>
+										<LBound>0</LBound>
+										<Elements>6</Elements>
+									</ArrayInfo>
 									<BitOffs>0</BitOffs>
-								</Symbol>
-								<Symbol>
-									<Name>Status</Name>
-									<BitSize>32</BitSize>
-									<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
-									<BitOffs>32</BitOffs>
-								</Symbol>
-								<Symbol>
-									<Name>Data</Name>
-									<BitSize>32</BitSize>
-									<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
-									<BitOffs>64</BitOffs>
 								</Symbol>
 							</DataArea>
 							<DataArea>
 								<AreaNo AreaType="OutputSrc">1</AreaNo>
 								<Name>Outputs</Name>
 								<ContextId>1</ContextId>
-								<ByteSize>12</ByteSize>
+								<ByteSize>24</ByteSize>
 								<Symbol>
-									<Name>Value</Name>
-									<BitSize>32</BitSize>
-									<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
+									<Name>OutPos</Name>
+									<BitSize>192</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<ArrayInfo>
+										<LBound>0</LBound>
+										<Elements>3</Elements>
+									</ArrayInfo>
 									<BitOffs>0</BitOffs>
-								</Symbol>
-								<Symbol>
-									<Name>Control</Name>
-									<BitSize>32</BitSize>
-									<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
-									<BitOffs>32</BitOffs>
-								</Symbol>
-								<Symbol>
-									<Name>Data</Name>
-									<BitSize>32</BitSize>
-									<BaseType GUID="{18071995-0000-0000-0000-000000000008}">UDINT</BaseType>
-									<BitOffs>64</BitOffs>
 								</Symbol>
 							</DataArea>
 						</DataAreas>
