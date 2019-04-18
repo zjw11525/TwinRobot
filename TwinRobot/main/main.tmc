@@ -70,12 +70,12 @@
         <DataArea>
           <AreaNo AreaType="InputDst">0</AreaNo>
           <Name>Inputs</Name>
-          <ContextId>1</ContextId><Symbol><Name>InPos</Name><BaseType GUID="{18071995-0000-0000-0000-00000000000e}">LREAL</BaseType><ArrayInfo><LBound>0</LBound><Elements>6</Elements></ArrayInfo></Symbol>
+          <ContextId>1</ContextId><Symbol><Name>InPos</Name><BaseType GUID="{18071995-0000-0000-0000-00000000000e}">LREAL</BaseType><ArrayInfo><LBound>0</LBound><Elements>6</Elements></ArrayInfo></Symbol><Symbol><Name>Symbol2</Name><BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType></Symbol>
         </DataArea>
         <DataArea>
           <AreaNo AreaType="OutputSrc">1</AreaNo>
           <Name>Outputs</Name>
-          <ContextId>1</ContextId><Symbol><Name>OutPos</Name><BaseType GUID="{18071995-0000-0000-0000-00000000000e}">LREAL</BaseType><ArrayInfo><LBound>0</LBound><Elements>3</Elements></ArrayInfo></Symbol>
+          <ContextId>1</ContextId><Symbol><Name>OutPos</Name><BaseType GUID="{18071995-0000-0000-0000-00000000000e}">LREAL</BaseType><ArrayInfo><LBound>0</LBound><Elements>3</Elements></ArrayInfo></Symbol><Symbol><Name>Symbol2</Name><BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType></Symbol>
         </DataArea>
       </DataAreas>
       <InterfacePointers>

@@ -188,12 +188,16 @@ HRESULT CModule1::CycleUpdate(ITcTask* ipTask, ITcUnknown* ipCaller, ULONG_PTR c
 
 
 	Array T;
+
 	T = Fkine_Final(Angle_Now);
 
 	for (int i = 0; i < 3; i++)
 		m_Outputs.OutPos[i] = T[i][3];
 
-
+	if (m_Inputs.Symbol2 == true)
+	{
+		m_Outputs.Symbol2++;
+	}
 
 
 	

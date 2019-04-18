@@ -84,7 +84,7 @@ Theta Ikine_Step(Array T, Theta Angle_Last)
 
 	int n = 0;
 	Array Angle(8, vector<double>(6, 0));
-	Theta Angle_Bast(6, 0);
+	Theta Angle_Best(6, 0);
 	double angle1 = 0, angle2 = 0, angle3 = 0, angle4 = 0, angle5 = 0, angle6 = 0;
 
 	double s3 = -(pow_((px - d6 * ax), 2) + pow_((py - d6 * ay), 2) + pow_((pz - d6 * az - d1), 2) - pow_(a2, 2) - pow_(d4, 2)) / (2 * a2 * d4);
@@ -171,7 +171,7 @@ Theta Ikine_Step(Array T, Theta Angle_Last)
 	}
 
 	if (n == 0)
-		return Angle_Bast;
+		return Angle_Best;
 	else
 	for (int i = 0; i < n; i++)
 	{
@@ -190,9 +190,9 @@ Theta Ikine_Step(Array T, Theta Angle_Last)
 			j = i;
 		}
 	}
-	Angle_Bast = Angle[j];
-	Angle_Bast[1] = Angle_Bast[1] + 1.5708;
-	return Angle_Bast;
+	Angle_Best = Angle[j];
+	Angle_Best[1] = Angle_Best[1] + 1.5708;
+	return Angle_Best;
 }
 
 
