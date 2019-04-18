@@ -3,8 +3,11 @@
 	<DataTypes/>
 	<Project ProjectGUID="{B00FEF78-494B-4419-8C4A-4AC3FF8E3CF8}" Target64Bit="true">
 		<System>
+			<Settings>
+				<Debugger Priority="61"/>
+			</Settings>
 			<Tasks>
-				<Task Id="1" Priority="1" CycleTime="10000" AmsPort="350">
+				<Task Id="1" Priority="1" CycleTime="100000" AmsPort="350">
 					<Name>C++</Name>
 				</Task>
 			</Tasks>
@@ -97,7 +100,7 @@
 									<BitOffs>0</BitOffs>
 								</Symbol>
 								<Symbol>
-									<Name>Symbol2</Name>
+									<Name>PosRun</Name>
 									<BitSize>8</BitSize>
 									<BaseType GUID="{18071995-0000-0000-0000-000000000030}">BOOL</BaseType>
 									<BitOffs>384</BitOffs>
@@ -107,7 +110,7 @@
 								<AreaNo AreaType="OutputSrc">1</AreaNo>
 								<Name>Outputs</Name>
 								<ContextId>1</ContextId>
-								<ByteSize>26</ByteSize>
+								<ByteSize>72</ByteSize>
 								<Symbol>
 									<Name>OutPos</Name>
 									<BitSize>192</BitSize>
@@ -119,9 +122,13 @@
 									<BitOffs>0</BitOffs>
 								</Symbol>
 								<Symbol>
-									<Name>Symbol2</Name>
-									<BitSize>16</BitSize>
-									<BaseType GUID="{18071995-0000-0000-0000-000000000006}">INT</BaseType>
+									<Name>OutAngle</Name>
+									<BitSize>384</BitSize>
+									<BaseType GUID="{18071995-0000-0000-0000-00000000000E}">LREAL</BaseType>
+									<ArrayInfo>
+										<LBound>0</LBound>
+										<Elements>6</Elements>
+									</ArrayInfo>
 									<BitOffs>192</BitOffs>
 								</Symbol>
 							</DataArea>

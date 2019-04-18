@@ -1,6 +1,14 @@
+//#include "TcPch.h"
 #include "Kinematic.h"
+//¹¹Ôì
+Kinematic::Kinematic() {}
+//Îö¹¹
+Kinematic::~Kinematic()
+{
 
-Array Fkine_Final(Theta theta)
+}
+
+Array Kinematic::Fkine_Step(Theta theta)
 {
 	double Theta1 = theta[0];
 	double Theta2 = theta[1] - 1.5708; //offset
@@ -67,7 +75,7 @@ Array Fkine_Final(Theta theta)
 	return T;
 }
 
-Theta Ikine_Step(Array T, Theta Angle_Last)
+Theta Kinematic::Ikine_Step(Array T, Theta Angle_Last)
 {
 	double nx = T[0][0];
 	double ny = T[1][0];
@@ -175,10 +183,12 @@ Theta Ikine_Step(Array T, Theta Angle_Last)
 	else
 	for (int i = 0; i < n; i++)
 	{
-		error = abs(Angle[i][0] - Angle_Last[0]) / 5.9341 + abs(Angle[i][1] - Angle_Last[1]) / 3.8397 +
-			abs(Angle[i][2] - Angle_Last[2]) / 4.5379 + abs(Angle[i][3] - Angle_Last[3]) / 6.2832 +
-			abs(Angle[i][4] - Angle_Last[4]) / 4.3633 + abs(Angle[i][5] - Angle_Last[5]) / 6.2832;
-
+		/*	error = abs(Angle[i][0] - Angle_Last[0]) / 5.9341 + abs(Angle[i][1] - Angle_Last[1]) / 3.8397 +
+		abs(Angle[i][2] - Angle_Last[2]) / 4.5379 + abs(Angle[i][3] - Angle_Last[3]) / 6.2832 +
+		abs(Angle[i][4] - Angle_Last[4]) / 4.3633 + abs(Angle[i][5] - Angle_Last[5]) / 6.2832;*/
+		error = abs(Angle[i][0] - Angle_Last[0]) * 0.1685 + abs(Angle[i][1] - Angle_Last[1]) * 0.2604 +
+				abs(Angle[i][2] - Angle_Last[2]) * 0.2204 + abs(Angle[i][3] - Angle_Last[3]) * 0.1592 +
+				abs(Angle[i][4] - Angle_Last[4]) * 0.2292 + abs(Angle[i][5] - Angle_Last[5]) * 0.1592;
 		if (i == 0)
 		{
 			error_min = error;
@@ -194,5 +204,3 @@ Theta Ikine_Step(Array T, Theta Angle_Last)
 	Angle_Best[1] = Angle_Best[1] + 1.5708;
 	return Angle_Best;
 }
-
-
