@@ -16,7 +16,6 @@ using namespace TC_VECTOR_NAMESPACE;
 typedef vector<vector<double>> Array;//¶þÎ¬doubleÊý×é
 typedef vector<double> Theta;
 
-
 class Kinematic
 {
 public:
