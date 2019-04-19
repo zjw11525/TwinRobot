@@ -177,47 +177,48 @@ HRESULT CModule1::CycleUpdate(ITcTask* ipTask, ITcUnknown* ipCaller, ULONG_PTR c
 	Kinematic kine;
 	Trajplanning traj;
 	// TODO: Replace the sample with your cyclic code
-	double angle[6] = { 0, 0, 0, 0, 0, 0 };
+
+	//IN
 	for (int i = 0; i < 6; i++)
-		angle[i] = m_Inputs.InPos[i];
+		InData[i] = m_Inputs.InPos[i];//Inputs --> InData
 
-	for (int i = 0; i < 6; i++) angle[i] *= (PI / 180.0);
-		Theta Angle_Now(angle, angle + 6);
+	//calc
+	for (int i = 0; i < 6; i++) InData[i] *= (PI / 180.0);//InData -- > Angle
+		Theta Angle_Now(InData, InData + 6);
 
-	Theta Angle_Last(angle, angle + 6);
-	Angle_Last[1] = Angle_Last[1] + PI / 2;
+	Theta Angle_Last(Angle_Now);//Angle_Now --> Angle_Last
 
 	Array T = kine.Fkine_Step(Angle_Now);
+
 	Array T1(T);
 	T1[0][3] = 0.2;
 	T1[1][3] = 0.2;
 	T1[2][3] = -0.3;
-	double L = sqrt_(pow_(T1[0][3], 2) + pow_(T1[1][3], 2) + pow_(T1[2][3], 2));//运动距离
-	int N = ceil_(L / (0.2*0.1)) + 1;//计算插补数量
 
-	Array Pos(N,vector<double>(3,0));
-	Pos = traj.MoveLine(T, T1, 0.2, 0.1, 0.1);	
+	traj.DataBase = traj.MoveLine(T, T1, 0.2, 0.1, 0.001);
 
+	int c = traj.DataBase[0].size();
 
+	Array T2(T);
 	for (int i = 0; i < 3; i++)
-		m_Outputs.OutPos[i] = Pos[i][m_counter];
+	{
+		m_Outputs.OutPos[i] = traj.DataBase[i][m_counter];		
+		T2[i][3] = traj.DataBase[i][m_counter];
+	}
 
-	if (m_Inputs.PosRun == true && m_counter < N)m_counter++;
+	if (m_counter < c) m_counter++;
 	else m_counter = 0;
 
-	//Theta angleout(6, 0);
-	//Array T2(T);
-	//T2[0][3] = Pos[0][m_counter];
-	//T2[1][3] = Pos[1][m_counter];
-	//T2[2][3] = Pos[2][m_counter];
-	//angleout = kine.Ikine_Step(T2, Angle_Last);
 
-	//for (int i = 0; i < 6; i++) 
-	//{	
-	//	m_Outputs.OutAngle[i] = angleout[i] *= (180.0 / PI);
-	//}
+	Theta outangle(6, 0);
+	outangle = kine.Ikine_Step(T2, Angle_Last);
 
-
+	for (int i = 0; i < 6; i++) 
+	{	
+		OutData[i] = outangle[i];
+		if (m_Inputs.PosRun == true)
+		m_Outputs.OutAngle[i] = OutData[i] *= (180.0 / PI);
+	}
 
 	return hr;
 }

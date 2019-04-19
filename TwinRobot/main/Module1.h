@@ -50,4 +50,6 @@ protected:
 
 	// TODO: Custom variable
 	UINT m_counter;
+	double InData[6];
+	double OutData[6];
 };
